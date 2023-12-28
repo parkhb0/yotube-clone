@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom";
 
 export default function VidoeCard({ video, type }) {
   const isList = type === "list";
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const { title, channelTitle, thumbnails, publishedAt } = video.snippet;
+
+  console.log("video.id = ", video.id);
 
   return (
     <li
       className={isList ? "flex gap-1 m-2" : ""}
-      onClick={() =>
-        navigate(`/videos/watch/${video.id}`, { state: { video } })
-      }
+      onClick={() => navigate(`/videos/watch/${video.id}`)}
     >
       <img
         className={isList ? "w-60 mr-2" : "w-full"}
